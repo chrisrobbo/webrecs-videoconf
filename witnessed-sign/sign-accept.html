@@ -1,0 +1,147 @@
+<html>
+   <head>
+      <style type="text/css">
+   body {
+         font-family: Arial, sans-serif;
+         font-size: 1em;
+         color:#383a45;
+
+   }
+   @media (max-device-width: 800px){
+     .headerImage {
+         width: 60% ;
+         margin-left:19%;
+       }
+    }
+
+   @media (min-device-width: 800px){
+    .headerImage {
+        margin-left:38%;
+        width:20%;
+       }
+   }
+   .maincontent {
+           background-color: white;
+           max-width:900px !important;
+   }
+   .pushbutton {
+           background-color:#0F0F97;
+           color:#FFFFFF;
+           border-color:#0F0F97;
+           font-size:1.3em;
+           padding:10px 20px;
+        }
+        .pushbutton:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+        }
+        .topline {
+                 border-top: 1px solid #b7cbd9;
+                padding-top: 10px;
+        }
+        .bottom-border {
+                padding: 10px 0px;
+                border-bottom:4px solid #e51b37
+        }
+        .top-border {
+                border-top:4px solid #e51b37;
+                padding-top: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script> 
+
+   </head>
+
+   <body>
+   <script type="text/javascript">//<![CDATA[
+     $(document).ready( 
+            function() {     
+                function getParameterByName(name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }
+                function bind_btnaccept(url) {
+                    $('#accept').on('click', function() {
+                        window.location.replace (url);
+                    });
+                }
+                function bind_btnreject() {
+                    $('#reject').on('click', function() {
+                        window.history.back();
+                    });
+                }
+                function bind_doclink(url) {
+                    $('#doclink').on('click', function() {
+                        window.open(url);
+                    });
+                }
+                
+                bind_btnaccept (getParameterByName ("sessionurl")) ;
+                bind_btnreject();
+                bind_doclink ("doclink")
+   } );
+//]]></script>
+      <table width="100%" cellpadding="20" cellspacing="0" border="0" bgcolor="#e2ebf0">
+         <tr>
+            <td width="100%" align="center"  style="color:#42444d;">
+               <table width="100%" class="mainContent" cellpadding="0" cellspacing="0" bgcolor="white" >
+                  <tr><td width="100%" class="top-border" > <img class="headerImage" src="https://sugar-alf-demo1.hosts.webrecs.com/share/res/images/e-witness3.png" >  </td></tr>
+                  <tr>
+                      <td style="padding: 10px 30px 0px;">
+                         <table width="100%" cellpadding="0" cellspacing="10px" border="0">
+                            <tr>
+                               <td class="topline">
+                                      You have been invited by an authorised witness to sign a document using live-chat video technology<br />
+                                      The document you will be signing can be viewed or downloaded  prior to the signing process from the following link : 
+                                </td>
+                          </tr>
+                           <tr>
+                                <td class="topline" style="font-size:1.2em ; color:#42444d; ">
+                                      <a href="doclink" >Download document</a> <br />
+                                </td>
+                          </tr>
+                          <tr>
+                            <td class="topline">
+During a live chat video session this document will be displayed in the e-Witness viewer together with video thumbnails of any other signers or witnesses.
+In order to check that the downloaded document is identical to that displayed in the e-Witness viewer you can compare the hash-code displayed in the 
+viewer as a green barcoded strip on the left side with that calculated for the downloaded document using one of the many hash-code calculators available.
+                                <br />
+                                <br />
+All signers (including yourself) will be prompted to acknowledge their intention to sign at one or more locations throughout the document. Signers will be asked to say their name plus a 4 digit code unique to the signer and that location.
+At each location a recording of the signer's video image and voice will be made and stored with the document as a record of the signer's agreement to sign the document at that location.<br />
+                                <br />
+                                      At the conclusion of the session the witness will digitally sign the entire document together with all recordings with his/her unique key, thereby rendering it officially witnessed and unalterable.<br />
+                                </td>
+                            </tr>
+                            <tr>
+                                   <td style="font-size:1.4em; color:red; ">
+                                      By pressing the "Accept" button you agree to the use of this technology to produce a legally-binding, signed, witnessed document.
+                                   </td>
+                           </tr>
+                        </table>
+                        <table  width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                              <td class="topline" style="padding-top: 30px;" >
+                                 <a id="accept" href="#" class="pushbutton" >Accept</a>
+                             </td>
+                              <td class="topline" style="padding-top: 30px;" >
+                                <a id="reject" href="#" class="pushbutton" >No Thanks</a>
+                            </td>
+                           </tr>
+                        </table>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="bottom-border" > </td>
+                   </tr>
+               </table>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>
+
